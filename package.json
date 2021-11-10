@@ -6,8 +6,9 @@
   "author": "kurza <kurzacationer@gmail.com>",
   "private": true,
   "scripts": {
-    "lint": "eslint --ext .js,.vue ./",
-    "test": "echo \"No test specified\" && exit 0"
+    "run-pwa": "quasar dev -m pwa",
+    "run-spa": "quasar dev -m spa",
+    "lint": "eslint --ext .js,.vue ./"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",

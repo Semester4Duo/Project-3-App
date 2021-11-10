@@ -11,7 +11,7 @@
           @click="toggleLeftDrawer"
         />
 
-        <q-toolbar-title> Quasar App </q-toolbar-title>
+        <q-toolbar-title> Project 3 App </q-toolbar-title>
 
         <div>Quasar v{{ $q.version }}</div>
       </q-toolbar>
@@ -26,6 +26,15 @@
           :key="link.title"
           v-bind="link"
         />
+        <q-item clickable tag="router-link" to="/count">
+          <q-item-section avatar>
+            <q-icon name="public" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Count</q-item-label>
+            <q-item-label caption> Link to the counter page </q-item-label>
+          </q-item-section>
+        </q-item>
       </q-list>
     </q-drawer>
 
@@ -80,13 +89,6 @@ const linksList = [
     caption: "Community Quasar projects",
     icon: "favorite",
     link: "https://awesome.quasar.dev",
-  },
-  {
-    title: "Counter",
-    caption: "Link to the counter page",
-    icon: "public",
-    isRoute: "",
-    link: "/count",
   },
 ];
 

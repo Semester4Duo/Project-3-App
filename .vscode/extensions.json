@@ -3,7 +3,8 @@
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
     "octref.vetur",
-    "francescopastore.quasar-extension-pack"
+    "francescopastore.quasar-extension-pack",
+    "sanaajani.taskrunnercode"
   ],
   "unwantedRecommendations": [
     "hookyqr.beautify",
