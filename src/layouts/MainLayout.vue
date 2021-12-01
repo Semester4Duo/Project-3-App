@@ -1,52 +1,45 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
-      <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
-
-        <q-toolbar-title> Project 3 App </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
-      </q-toolbar>
-    </q-header>
-
-    <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
-      <q-list>
-        <q-item-label header> Essential Links </q-item-label>
-
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
-        <q-item clickable tag="router-link" to="/count">
-          <q-item-section avatar>
-            <q-icon name="public" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Count</q-item-label>
-            <q-item-label caption> Link to the counter page </q-item-label>
-          </q-item-section>
-        </q-item>
-      </q-list>
-    </q-drawer>
-
     <q-page-container>
       <router-view />
     </q-page-container>
+
+    <q-footer elevated>
+      <q-tabs class="text-teal bg-dark">
+        <q-route-tab
+          name="Topic"
+          to="/topic"
+          icon="img:icons/propaganda.svg"
+          label="Topic"
+          exact
+        />
+        <q-route-tab
+          name="Courses"
+          to="/courses"
+          icon="img:icons/graduation.svg"
+          label="Courses"
+          exact
+        />
+        <q-route-tab
+          name="Quizzes"
+          to="/quizzes"
+          icon="img:icons/book.svg"
+          label="Quizzes"
+          exact
+        />
+        <q-route-tab
+          name="Profile"
+          to="/profile"
+          icon="img:icons/parrot.svg"
+          label="Profile"
+          exact
+        />
+      </q-tabs>
+    </q-footer>
   </q-layout>
 </template>
 
 <script>
-import EssentialLink from "components/EssentialLink.vue";
-
 const linksList = [
   {
     title: "Docs",
@@ -96,10 +89,6 @@ import { defineComponent, ref } from "vue";
 
 export default defineComponent({
   name: "MainLayout",
-
-  components: {
-    EssentialLink,
-  },
 
   setup() {
     const leftDrawerOpen = ref(false);

@@ -4,6 +4,9 @@
   "description": "A Quasar Framework app",
   "productName": "Project 3 App",
   "author": "kurza <kurzacationer@gmail.com>",
+  "contributors": [
+    ""
+  ],
   "private": true,
   "scripts": {
     "run-pwa": "quasar dev -m pwa",
