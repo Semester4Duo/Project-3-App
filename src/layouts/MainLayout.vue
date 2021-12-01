@@ -1,36 +1,35 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-page-container>
+    <q-page-container class="bg-primary">
       <router-view />
     </q-page-container>
-
     <q-footer elevated>
-      <q-tabs class="text-teal bg-dark">
+      <q-tabs class="bg-primary text-dark custom_style_tab_bar">
         <q-route-tab
           name="Topic"
           to="/topic"
-          icon="img:icons/propaganda.svg"
+          :icon="currentRouteName == '/topic'? 'img:icons/propaganda_color.svg':'img:icons/propaganda.svg'"
           label="Topic"
           exact
         />
         <q-route-tab
           name="Courses"
           to="/courses"
-          icon="img:icons/graduation.svg"
+          :icon="currentRouteName == '/courses'? 'img:icons/graduation_color.svg':'img:icons/graduation.svg'"
           label="Courses"
           exact
         />
         <q-route-tab
           name="Quizzes"
           to="/quizzes"
-          icon="img:icons/book.svg"
+          :icon="currentRouteName == '/quizzes'? 'img:icons/book_color.svg':'img:icons/book.svg'"
           label="Quizzes"
-          exact
+          
         />
         <q-route-tab
           name="Profile"
           to="/profile"
-          icon="img:icons/parrot.svg"
+          :icon="currentRouteName == '/profile'? 'img:icons/parrot_color.svg':'img:icons/parrot.svg'"
           label="Profile"
           exact
         />
@@ -38,68 +37,33 @@
     </q-footer>
   </q-layout>
 </template>
+<style>
+.custom_style_tab_bar .q-tab__label{
+ color: var(--q-info) !important
+}
+.custom_style_tab_bar .q-tab--active .q-tab__label{
+ color: var(--q-dark) !important
+}
+
+.custom_style_tab_bar .q-tab--active .q-tab__indicator{
+ color: var(--q-info) !important;
+ height: 7px;
+ border-radius: 25px 25px 0 0;
+}
+
+</style>
+
 
 <script>
-const linksList = [
-  {
-    title: "Docs",
-    caption: "quasar.dev",
-    icon: "school",
-    link: "https://quasar.dev",
-  },
-  {
-    title: "Github",
-    caption: "github.com/quasarframework",
-    icon: "code",
-    link: "https://github.com/quasarframework",
-  },
-  {
-    title: "Discord Chat Channel",
-    caption: "chat.quasar.dev",
-    icon: "chat",
-    link: "https://chat.quasar.dev",
-  },
-  {
-    title: "Forum",
-    caption: "forum.quasar.dev",
-    icon: "record_voice_over",
-    link: "https://forum.quasar.dev",
-  },
-  {
-    title: "Twitter",
-    caption: "@quasarframework",
-    icon: "rss_feed",
-    link: "https://twitter.quasar.dev",
-  },
-  {
-    title: "Facebook",
-    caption: "@QuasarFramework",
-    icon: "public",
-    link: "https://facebook.quasar.dev",
-  },
-  {
-    title: "Quasar Awesome",
-    caption: "Community Quasar projects",
-    icon: "favorite",
-    link: "https://awesome.quasar.dev",
-  },
-];
 
-import { defineComponent, ref } from "vue";
-
-export default defineComponent({
-  name: "MainLayout",
-
-  setup() {
-    const leftDrawerOpen = ref(false);
-
-    return {
-      essentialLinks: linksList,
-      leftDrawerOpen,
-      toggleLeftDrawer() {
-        leftDrawerOpen.value = !leftDrawerOpen.value;
-      },
-    };
-  },
-});
+import { useRoute } from 'vue-router';
+export default {
+   name: "MainLayout",
+   computed: {
+    currentRouteName() {
+        return this.$router.currentRoute.value.path;
+    }
+}
+  
+};
 </script>
