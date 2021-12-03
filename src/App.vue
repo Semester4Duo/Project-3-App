@@ -9,7 +9,7 @@ export default defineComponent({
   name: "App",
   setup() {
     const $q = useQuasar();
-     $q.dark.set("false");
+    //$q.dark.set("auto");
   },
 });
 </script>
