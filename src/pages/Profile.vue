@@ -61,8 +61,9 @@
             <div class="col">Achievements</div>
             <div class="col">
               <q-img v-model="visible" src="icons/down-chevron.svg" height="20px" width="20px"
+                :style="visible? 'transform:rotateX(180deg); transition: all 0.3s;':'transition: all 0.3s;'"
                 @click="visible= !visible"
-                :style="visible? 'transform:rotateX(180deg); transition: all 0.3s;':'transition: all 0.3s;'" />
+                 />
             </div>
           </div>
           <div class="row achievements">

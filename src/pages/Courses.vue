@@ -20,7 +20,7 @@
           v-for="course in courses.slice(0, 1)"
           :key="course.id"
           :course="course"
-          :has-dialog-open="true"
+          :has-dialog-open="false"
         />
         <Course
           v-for="course in courses.slice(1, 2)"
@@ -61,8 +61,6 @@
 </template>
 
 <script>
-import ref from "vue";
-
 const courseList = [
   {
     id: 0,
@@ -100,7 +98,6 @@ export default {
   setup() {
     return {
       courses: courseList,
-      ref: ref,
     };
   },
 };
