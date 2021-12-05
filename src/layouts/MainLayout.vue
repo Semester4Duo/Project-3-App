@@ -1,10 +1,10 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-page-container class="bg-primary">
+    <q-page-container>
       <router-view />
     </q-page-container>
     <q-footer elevated>
-      <q-tabs class="bg-primary text-dark custom_style_tab_bar">
+      <q-tabs class="bg-white text-dark custom_style_tab_bar">
         <q-route-tab
           name="Topic"
           to="/topic"
@@ -37,22 +37,6 @@
     </q-footer>
   </q-layout>
 </template>
-<style>
-.custom_style_tab_bar .q-tab__label{
- color: var(--q-info) !important
-}
-.custom_style_tab_bar .q-tab--active .q-tab__label{
- color: var(--q-dark) !important
-}
-
-.custom_style_tab_bar .q-tab--active .q-tab__indicator{
- color: var(--q-info) !important;
- height: 7px;
- border-radius: 25px 25px 0 0;
-}
-
-</style>
-
 
 <script>
 
@@ -67,3 +51,21 @@ export default {
   
 };
 </script>
+
+
+<style>
+
+.custom_style_tab_bar .q-tab__label{
+ color: var(--color-gray) !important
+}
+.custom_style_tab_bar .q-tab--active .q-tab__label{
+  color: var(--q-dark) !important
+}
+
+.custom_style_tab_bar .q-tab--active .q-tab__indicator{
+ color: var(--color-gray) !important;
+ height: 7px;
+ border-radius: 25px 25px 0 0;
+}
+
+</style>
