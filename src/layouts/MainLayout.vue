@@ -29,7 +29,7 @@
         <q-route-tab
           name="Profile"
           to="/profile"
-          :icon="currentRouteName == '/profile'? 'img:icons/parrot_color.svg':'img:icons/parrot.svg'"
+          :icon="currentRouteName == '/profile'? 'img:icons/user-icons/'+user.icon+'.svg' :'img:icons/user-icons/'+user.icon+'-no-color.svg'"
           label="Profile"
           exact
         />
@@ -47,7 +47,32 @@ export default {
     currentRouteName() {
         return this.$router.currentRoute.value.path;
     }
-}
+  },
+  data() {
+    return{
+      user: {icon:"", username:""}
+    }
+  },
+   watch:{
+     user(newUser){
+       localStorage.user = JSON.stringify(newUser);
+     }
+
+    },
+    mounted(){
+       window.addEventListener('user-localstorage-changed', (event) => {
+      this.user = JSON.parse(localStorage.user)
+      return
+  });
+      if(localStorage.user){
+        this.user = JSON.parse(localStorage.user)
+      }else{
+        localStorage.user = JSON.stringify({username:"DemoUser", icon:"044-parrot.svg"});
+        this.user = {username:"DemoUser", icon:"044-parrot.svg"}
+      }
+      console.log(this.user)
+    },
+
   
 };
 </script>
