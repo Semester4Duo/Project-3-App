@@ -17,7 +17,13 @@
         style="padding-top: 8px; padding-bottom: 8px"
       >
         <Course
-          v-for="course in courses.slice(0, 2)"
+          v-for="course in courses.slice(0, 1)"
+          :key="course.id"
+          :course="course"
+          :has-dialog-open="true"
+        />
+        <Course
+          v-for="course in courses.slice(1, 2)"
           :key="course.id"
           :course="course"
         />
@@ -55,6 +61,8 @@
 </template>
 
 <script>
+import ref from "vue";
+
 const courseList = [
   {
     id: 0,
@@ -62,7 +70,7 @@ const courseList = [
     color: "#E0ABF9",
     image: "chemistry/003-structure.svg",
     steps: 6,
-    progress: 5,
+    progress: 2,
   },
   {
     id: 1,
@@ -78,7 +86,7 @@ const courseList = [
     color: "#82FF82",
     image: "chemistry/009-flask.svg",
     steps: 6,
-    progress: 5,
+    progress: 4,
   },
 ];
 
@@ -92,6 +100,7 @@ export default {
   setup() {
     return {
       courses: courseList,
+      ref: ref,
     };
   },
 };
